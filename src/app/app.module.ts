@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { AngularFireModule } from 'angularfire2';
       messagingSenderId: "108769623315",
       appId: "1:108769623315:web:5803705b479208c986aee6"
     }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireAuth
   ],
   providers: [
     HttpClientModule,
