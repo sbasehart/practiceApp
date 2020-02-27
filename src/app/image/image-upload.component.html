@@ -1,9 +1,12 @@
 <div class="container mainContainer">
     <div class="row justify content center">
         <div class="image-upload-container btn btn-bwm">
-            <label for="imageInput">Select Image</span>
+            <label for="imageInput">Select Image</label><br>
             <input #imageInput type="file" accept="image/*" (change)="upload($event)">
         </div>
-        <progress class="box_uploading" max="100" [value]="(uploadProgress | async)"></progress>
+        <progress *ngIf="uploadProgress" max="100" [value]="(uploadProgress | async)"></progress>
+    </div>
+    <div *ngIf="downloadURL" class="alert alert-info" role="alert" >
+        <img src="{{downloadURL}}" alt="" srcset="" style="max-width:300px">
     </div>
 </div>
