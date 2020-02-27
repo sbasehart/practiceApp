@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color:rgba(20,20,20); 
+    background-image: url('assets/images/hiclipart.com.png');
+    padding-top:0;
+    padding-left:0;
+    padding-right:0;
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: left top;
+    background-size: 100% cover;
+}

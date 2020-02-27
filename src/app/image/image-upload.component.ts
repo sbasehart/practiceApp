@@ -39,13 +39,7 @@ export class ImageUploadComponent {
       this.selectedFile = new ImageSnippet(event.target.result, file);
 
       this.selectedFile.pending = true;
-      this.imageService.uploadImage(this.selectedFile.file).subscribe(
-        (res) => {
-          this.onSuccess();
-        },
-        (err) => {
-          this.onError();
-        })
+      this.imageService.uploadImage(this.selectedFile.file)
     });
 
     reader.readAsDataURL(file);
