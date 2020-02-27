@@ -1,0 +1,13 @@
+.mainContainer {
+  margin: 3% auto;
+  background-color: white;
+  box-shadow: 0px 2px 5px black;
+}
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+

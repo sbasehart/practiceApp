@@ -3,24 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ImageComponent } from './image/image.component';
+import { ImageUploadComponent } from './image/image-upload.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImageComponent,
-    HomeComponent
+    ImageUploadComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
-
+    HttpClientModule,
   ],
   bootstrap: [AppComponent]
 })
