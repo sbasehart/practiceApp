@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from './image-upload.service'
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage'
 
 class ImageSnippet {
   pending: boolean = false;
-  status: string = 'init';
-
   constructor(public src: string, public file: File) {}
 }
 
@@ -15,33 +14,13 @@ class ImageSnippet {
 })
 export class ImageUploadComponent {
 
-  selectedFile: ImageSnippet;
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  
+  constructor(private afStorage: AngularFireStorage){}
 
-  constructor(private imageService: ImageService){}
-
-  private onSuccess() {
-    this.selectedFile.pending = false;
-    this.selectedFile.status = 'ok';
-  }
-
-  private onError() {
-    this.selectedFile.pending = false;
-    this.selectedFile.status = 'fail';
-    this.selectedFile.src = '';
-  }
-
-  processFile(imageInput: any) {
-    const file: File = imageInput.files[0];
-    const reader = new FileReader();
-
-    reader.addEventListener('load', (event: any) => {
-
-      this.selectedFile = new ImageSnippet(event.target.result, file);
-
-      this.selectedFile.pending = true;
-      this.imageService.uploadImage(this.selectedFile.file)
-    });
-
-    reader.readAsDataURL(file);
-  }
+  upload(event) {
+    const id = Math.random().toString(36).substring(2);
+    this.ref = this.afStorage.ref(id);
+    this.task = this.ref.put(event.target.files[0]);  }
 }

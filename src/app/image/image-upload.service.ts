@@ -9,11 +9,5 @@ import { AngularFireStorage } from 'angularfire2/storage';
 export class ImageService {
 
     constructor(private http: HttpClient, private afStorage: AngularFireStorage) {}
-  
-    public uploadImage(event) {  
-      return this.afStorage.upload('/upload/to/this-path', event.target.files[0]);  
-    }
-    private log(message: string) {
-      console.log(message);
-    }
+
 }

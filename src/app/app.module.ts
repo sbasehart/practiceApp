@@ -9,14 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuth } from 'angularfire2/auth';
-
+import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ImageUploadComponent,
+    HomeComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
       appId: "1:108769623315:web:5803705b479208c986aee6"
     }),
     AngularFireStorageModule,
-    AngularFireAuth
   ],
   providers: [
     HttpClientModule,
