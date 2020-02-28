@@ -4,6 +4,8 @@
             <label for="imageInput">Select Image</label><br>
             <input #imageInput type="file" accept="image/*" (change)="upload($event)">
         </div>
+    </div>
+    <div class="row">
         <progress *ngIf="uploadProgress" max="100" [value]="(uploadProgress | async)"></progress>
     </div>
     <div *ngIf="downloadURL" class="alert alert-info" role="alert" >

@@ -22,9 +22,9 @@ const routes: Routes = [
     data: { title: 'home' }
   },
   {
-    path: 'image',
+    path: 'image-upload',
     component: ImageUploadComponent,
-    data: { title: 'image' }
+    data: { title: 'image-upload' }
   }
 ];
 

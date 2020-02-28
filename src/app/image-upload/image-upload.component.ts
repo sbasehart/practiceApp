@@ -18,25 +18,17 @@ export class ImageUploadComponent {
   downloadURL: Observable<string>;
 
   constructor(private afStorage: AngularFireStorage, private firebaseApp: FirebaseApp){
-    const storageRef = firebaseApp.storage().ref().child('images/image.png');
-    storageRef.getDownloadURL().then(url => this.ref = url);
   }
 
   upload(event) {
     const id = Math.random().toString(36).substring(2);
-    this.ref = this.afStorage.ref(id);
+    this.ref = this.afStorage.ref('/' + id);
     this.task = this.ref.put(event.target.files[0]);  
     this.uploadState = this.task.snapshotChanges()
     .pipe(
       map(s => s.state),
-      );
-      const downloadURL = this.ref.getDownloadURL();
-
-      downloadURL.subscribe(url=>{
-         if(url){
-            console.log(url)
-         }
-      })    
-      this.uploadProgress = this.task.percentageChanges()
+    );
+    const downloadURL = 'https://firebasestorage.googleapis.com/v0/b/gallindoangular-269517.appspot.com/o/{{this.id}}?alt=media'  
+    this.uploadProgress = this.task.percentageChanges()
   }
 }
