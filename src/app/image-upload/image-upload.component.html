@@ -7,6 +7,6 @@
         <progress *ngIf="uploadProgress" max="100" [value]="(uploadProgress | async)"></progress>
     </div>
     <div *ngIf="downloadURL" class="alert alert-info" role="alert" >
-        <img src="{{downloadURL}}" alt="" srcset="" style="max-width:300px">
+        <img src="downloadURL" alt="" srcset="" style="max-width:300px">
     </div>
 </div>

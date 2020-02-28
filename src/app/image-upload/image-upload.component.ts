@@ -30,6 +30,13 @@ export class ImageUploadComponent {
     .pipe(
       map(s => s.state),
       );
-    this.uploadProgress = this.task.percentageChanges()
+      const downloadURL = this.ref.getDownloadURL();
+
+      downloadURL.subscribe(url=>{
+         if(url){
+            console.log(url)
+         }
+      })    
+      this.uploadProgress = this.task.percentageChanges()
   }
 }
