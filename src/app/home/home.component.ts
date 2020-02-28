@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageUploadComponent } from '../image/image-upload/image-upload.component'
 
 @Component({
   selector: 'app-home',

@@ -1,13 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ImageUploadComponent } from './image/image-upload.component';
+import { ImageUploadComponent } from './image/image-upload/image-upload.component';
+import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'image',
+    redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    data: { title: 'admin' }
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    data: { title: 'home' }
   },
   {
     path: 'image',

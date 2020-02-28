@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ImageUploadComponent } from './image/image-upload.component';
+import { ImageUploadComponent } from './image/image-upload/image-upload.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,6 +11,9 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireModule } from 'angularfire2';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
+import { ImageComponent } from './image/image.component';
+import { ImageDetailsComponent } from './image/image-details/image-details.component';
+import { ImageEditComponent } from './image/image-edit/image-edit.component';
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import { AdminComponent } from './admin/admin.component';
     ImageUploadComponent,
     HomeComponent,
     AdminComponent,
+    ImageComponent,
+    ImageDetailsComponent,
+    ImageEditComponent,
   ],
   imports: [
     BrowserModule,
