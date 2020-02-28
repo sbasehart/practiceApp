@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize, map } from 'rxjs/operators';
-import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage'
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask, createStorageRef } from 'angularfire2/storage'
 import { Observable } from 'rxjs';
+import { FirebaseApp } from 'angularfire2';
 
 @Component({
   selector: 'image-upload-container',
@@ -16,15 +17,19 @@ export class ImageUploadComponent {
   uploadProgress: Observable<number>;
   downloadURL: Observable<string>;
 
-  constructor(private afStorage: AngularFireStorage){}
+  constructor(private afStorage: AngularFireStorage, private firebaseApp: FirebaseApp){
+    const storageRef = firebaseApp.storage().ref().child('images/image.png');
+    storageRef.getDownloadURL().then(url => this.ref = url);
+  }
 
   upload(event) {
     const id = Math.random().toString(36).substring(2);
     this.ref = this.afStorage.ref(id);
-    this.task = this.ref.put(event.target.files[0],);  
-    this.uploadState = this.task.snapshotChanges().pipe(map(s => s.state));
+    this.task = this.ref.put(event.target.files[0]);  
+    this.uploadState = this.task.snapshotChanges()
+    .pipe(
+      map(s => s.state),
+      );
     this.uploadProgress = this.task.percentageChanges()
-    this.downloadURL = this.ref.getMetadata()
-    console.log(event, this.uploadState, this.downloadURL)
   }
 }
